@@ -1,0 +1,85 @@
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.order-button {
+  padding: 16px 32px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4eab2f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.order-button:hover {
+  background-color: #f2c335;
+}
+
+.check-mark {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Initially hidden */
+  width: 128px; /* Adjust size as needed */
+  height: 128px; /* Adjust size as needed */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.check-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.order-placed {
+  font-size: 2rem;
+  margin-top: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevent interaction with the fireworks */
+  z-index: -1; /* Behind other elements */
+  overflow: hidden;
+}
+
+.firework {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f2c335;
+  border-radius: 50%;
+  animation: fireworkAnimation 2s infinite;
+}
+
+@keyframes fireworkAnimation {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150vh) translateX(calc(100vw * 1.5)) scale(0);
+    opacity: 0;
+  }
+}
